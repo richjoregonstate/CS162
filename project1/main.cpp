@@ -6,12 +6,13 @@ bool checkWin(){
     return 0;
 }
 
-void printBoard(bool board[3][3]){
+void printBoard(char board[3][3]){
     
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
             cout << board[i][j];
         }
+        cout << '\n';
     }
     
     return;
@@ -20,7 +21,7 @@ void printBoard(bool board[3][3]){
 
 int main(){
     //Core data
-    bool board[3][3] = {NULL};
+    char board[3][3] = {'0'};
     bool game = true; //The game is being played
     bool player = true;
     bool useAi;// We will use AI and 'Algorithms'
