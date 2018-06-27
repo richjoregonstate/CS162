@@ -1,0 +1,11 @@
+CXX = g++
+SRCS = avrage.cpp summation.cpp main.cpp
+HEADERS = avrage.hpp summation.hpp
+
+default: prog
+
+prog: ${SRCS} ${HEADERS}
+	${CXX} ${SRCS} -o prog
+
+clean:
+	rm -f *.o prog
