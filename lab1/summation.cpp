@@ -1,4 +1,4 @@
-#include "summation.h"
+#include "summation.hpp"
 
 double sum(double *array){
     double sum = 0;

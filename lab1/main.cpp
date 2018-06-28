@@ -1,6 +1,6 @@
 #include <iostream>
-#include "summation.h"
-#include "avrage.h"
+#include "summation.hpp"
+#include "average.hpp"
 using namespace std;
 
 int main(){
@@ -15,6 +15,6 @@ int main(){
         cout << endl;
     }
     
-    cout << "Your avrage is: " << avg(array) << "\nYour summation is: " << sum(array) << endl;
+    cout << "Your average is: " << avg(array) << "\nYour summation is: " << sum(array) << endl;
 
 }
