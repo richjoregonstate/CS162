@@ -53,7 +53,6 @@ void list::print(){
 }
 
 void list::remove(int a){// Broken
-    groceryList[a].destroy();
     for(int i = a; i < numberOfItems; i++){
         groceryList[i] = groceryList[i+1];
     }

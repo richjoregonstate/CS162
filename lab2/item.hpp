@@ -15,7 +15,6 @@ class item{
   void setItemName(string a);
   void setNumToBuy(int a);
   void  setUnit(string a);
-  void destroy();
  private:
   string itemName;
   string unit;
