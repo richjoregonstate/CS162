@@ -16,5 +16,5 @@ int main(){
     }
     
     cout << "Your average is: " << avg(array) << "\nYour summation is: " << sum(array) << endl;
-
+    delete [] array;
 }
