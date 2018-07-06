@@ -3,7 +3,7 @@ SRCS = main.cpp
 HEADERS =
 
 program1: ${SRCS} ${HEADERS}
-	${CXX} ${SRCS} -o program1
+	${CXX} ${SRCS} -o program1 -g
 
 clean:
 	rm -f *.o program1
