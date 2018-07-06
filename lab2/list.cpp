@@ -1,6 +1,7 @@
 #include "item.hpp"
 #include "list.hpp"
 #include <iostream>
+#include <string>
 using namespace std;
 
 /*
@@ -11,10 +12,52 @@ if the array is full? What functions will you need?
 */
 
 list::list(){
-    this->groceryList = new item[10];
+    groceryList = new item[10];// grocheryList -> [[item* 0][item* 0][item* 0][item* 0][item* 0][item* 0]]
+    size = 10;
+    numberOfItems = 0;
 }
 
 
-void list::addItem(char* a, char* b,int c, int d){// We left off here
+void list::addItem(string a, string b,int c, int d){// We left off here
+    if(numberOfItems >= size){
+        cout << "Resize!\n";
+        groceryList = resize();
+    }
     
+    groceryList[numberOfItems].setItemName(a);    
+    groceryList[numberOfItems].setUnit(b);
+    groceryList[numberOfItems].setNumToBuy(c);
+    groceryList[numberOfItems].setPrice(d);
+    
+    numberOfItems++;
+}   
+
+item* list::resize(){
+    item *newList = new item[size*2];
+    for(int i = 0; i < size; i++){
+        newList[i] = groceryList[i];
+    }
+
+
+    delete [] groceryList;
+    newList;
+    size = size*2;
+    return newList;
+}
+
+void list::print(){
+    for(int i = 0; i < numberOfItems; i++){
+        cout << "Item " << i << ": ";
+        groceryList[i].printItem();
+        cout << endl;
+    }
+}
+
+void list::remove(int a){
+    groceryList[a] = groceryList[size];
+    numberOfItems--;
+}
+
+void list::destroy(){
+    delete [] groceryList;
 }

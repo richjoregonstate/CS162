@@ -9,15 +9,16 @@ number to buy, and unit price. You’ll need a print() function.
 */
 
 item::item(){
-    itemName = NULL;
-    unit = NULL;
-    numToBuy = NULL;
-    price = NULL;
+    itemName;
+    unit;
+    numToBuy;
+    price;
 }
 
 
 void item::printItem(){
-    cout << "Item: " << itemName << endl << "Number to buy:" << numToBuy << " " << unit << endl << "$" << price << endl << "Total price: $" << price*numToBuy;
+    cout << itemName << endl << "Number to buy: " << numToBuy << " " << unit << endl<< "Price: $" << price << endl << "Total price: $" << price*numToBuy;
+    cout << endl;
 }
 
 
@@ -25,13 +26,13 @@ void item::printItem(){
 int item::getPrice(){
     return price;
 }
-char* item::getItemName(){
+string item::getItemName(){
     return itemName;
 }
 int item::getNumToBuy(){
     return numToBuy;
 }
-char* item::getUnit(){
+string item::getUnit(){
     return unit;
 }
 
@@ -39,12 +40,12 @@ char* item::getUnit(){
 void item::setPrice(int a){
     price = a;
 }
-void item::setItemName(char* a){
+void item::setItemName(string a){
     itemName = a;
 }
 void item::setNumToBuy(int a){
     numToBuy = a;
 }
-void item::setUnit(char* a){
+void item::setUnit(string a){
     unit = a;
 }

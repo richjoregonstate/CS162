@@ -1,13 +1,21 @@
 #ifndef LIST_HPP_
 #define LIST_HPP_
 #include "item.hpp"
+#include <string>
+using namespace std;
 
 class list{
  public:
   list();
-  void addItem(char* a, char* b,int c, int d);
+  void addItem(string a, string b,int c, int d);
+  item* resize();
+  void remove(int a);
+  void destroy();
+  void print();
  private:
     item *groceryList;
+    int size;
+    int numberOfItems;
 };
 
 #endif /* LIST_HPP_ */

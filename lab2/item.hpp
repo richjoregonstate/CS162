@@ -1,21 +1,23 @@
 #ifndef ITEM_HPP_
 #define ITEM_HPP_
+#include <string>
+using namespace std;
 
 class item{
  public:
   item();
   void printItem();
   int getPrice();
-  char* getItemName();
+  string getItemName();
   int getNumToBuy();
-  char* getUnit();
+  string getUnit();
   void setPrice(int a);
-  void setItemName(char* a);
+  void setItemName(string a);
   void setNumToBuy(int a);
-  void  setUnit(char* a);
+  void  setUnit(string a);
  private:
-  char* itemName;
-  char* unit;
+  string itemName;
+  string unit;
   int numToBuy;
   int price;
 };
