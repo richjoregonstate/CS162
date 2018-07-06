@@ -13,7 +13,7 @@ class opperations{
     void remove(int a);
     void print();
   private:
-    list *myList;
+    list myList;
 };
 
 #endif /* OPPERATIONS_HPP_ */

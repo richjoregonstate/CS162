@@ -21,7 +21,7 @@ list::list(){
 void list::addItem(string a, string b,int c, int d){// We left off here
     if(numberOfItems >= size){
         cout << "Resize!\n";
-        groceryList = resize();
+        resize();
     }
     
     groceryList[numberOfItems].setItemName(a);    
@@ -32,7 +32,7 @@ void list::addItem(string a, string b,int c, int d){// We left off here
     numberOfItems++;
 }   
 
-item* list::resize(){
+void list::resize(){
     item *newList = new item[size*2];
     for(int i = 0; i < size; i++){
         newList[i] = groceryList[i];
@@ -40,9 +40,8 @@ item* list::resize(){
 
 
     delete [] groceryList;
-    newList;
     size = size*2;
-    return newList;
+    groceryList = newList;
 }
 
 void list::print(){
@@ -53,8 +52,12 @@ void list::print(){
     }
 }
 
-void list::remove(int a){
-    groceryList[a] = groceryList[size];
+void list::remove(int a){// Broken
+    groceryList[a].destroy();
+    for(int i = a; i < numberOfItems; i++){
+        groceryList[i] = groceryList[i+1];
+    }
+    
     numberOfItems--;
 }
 

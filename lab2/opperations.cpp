@@ -11,7 +11,7 @@ user to enter the name, unit of sale, the number needed, and the unit price.
 
 
 opperations::opperations(){
-    myList = new list;
+    myList;
 }
 
 void opperations::newItem(){
@@ -29,20 +29,19 @@ void opperations::newItem(){
     cout << "\nPrice: ";
     cin >> price;
 
-    myList->addItem(itemName,unit,numToBuy,price);
+    myList.addItem(itemName,unit,numToBuy,price);
     
 }
 
 void opperations::print(){
-    myList->print();
+    myList.print();
 }
 
 void opperations::remove(int a){
-    myList->remove(a);
+    myList.remove(a);
 }
 
 void opperations::destroy(){
-    myList->destroy();
-    delete myList;
+    myList.destroy();
 }
 

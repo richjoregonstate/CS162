@@ -8,7 +8,7 @@ class list{
  public:
   list();
   void addItem(string a, string b,int c, int d);
-  item* resize();
+  void resize();
   void remove(int a);
   void destroy();
   void print();
