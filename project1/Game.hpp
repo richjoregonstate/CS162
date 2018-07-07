@@ -2,6 +2,9 @@
 #define GAME_HPP_
 using namespace std;
 #include <string>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 class Game{
  public:

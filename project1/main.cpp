@@ -38,6 +38,9 @@ int main(){
         getline(cin,player2);
     }
     else{
+        cout << "Would you like to go first (Y or N): ";// Ai
+        getline(cin,input);
+        player = ((input[0] == 'Y') ? true : false);
         player2 = "AI";
     }
 
@@ -66,10 +69,25 @@ int main(){
         game = tick.checkWin(board,player,size);// Check for a win
         if(game == false){
             cout << "Congradulations player: " << ((player) ? player1 : player2) << " wins!" << endl;
+            cout << "Would you like to play again (Y or N): ";
+            getline(cin,input);
+            if(input[0] == 'Y'){
+                game = true;
+                tick.iniBoard(board,size);
+                cin >> size;
+            }
         }
         if(tick.checkDraw(board,size) == true){
             cout << "It's a draw!";
-            break;
+            getline(cin,input);
+            if(input[0] == 'Y'){
+                game = true;
+                tick.iniBoard(board,size);
+                cin >> size;
+            }
+            else{
+                game = false;
+            }
         }
         player = (player) ? false : true;
     }

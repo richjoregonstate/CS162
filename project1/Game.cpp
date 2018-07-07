@@ -1,7 +1,9 @@
 #include "Game.hpp"
 #include <iostream>
 #include <string>
-#include <random>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <assert.h>  
 using namespace std;
 
@@ -20,7 +22,7 @@ bool Game::checkWin(char **board, bool player,int n){
     char checkFor = (player) ? 'X' : 'O';
     int win = 0;
 
-    //Diagnal tl to br
+    //Diagnal top left to bottom right
     for(int i = 0; i < n; i++){
         if(board[i][i] == checkFor){
             win++;
