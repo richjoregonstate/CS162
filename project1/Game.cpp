@@ -113,7 +113,6 @@ void Game::getInput(char **board,int n,bool player,bool useAi){
         if(useAi == true && player == false){
             row = rand() % n;
             collum = rand() % n;
-            cout << row << ":" << collum << " " << board[row][collum] << endl;
             if(row >= 0 && row <= n && collum >= 0 && collum <= n){// Check valid input format
                 if(board[row][collum] == '*'){// Check valid move
                     makePlay(row,collum,board,player);
@@ -128,7 +127,6 @@ void Game::getInput(char **board,int n,bool player,bool useAi){
             cin >> collum;
             collum--;
             row--;
-            cout << row << ":" << collum << " " << board[row][collum] << endl;
             if(row >= 0 && row <= n && collum >= 0 && collum <= n){// Check valid input format
                 if(board[row][collum] == '*'){// Check valid move
                     makePlay(row,collum,board,player);

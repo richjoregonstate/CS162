@@ -67,22 +67,21 @@ int main(){
         tick.printBoard(board,size);// Print the board
         game = tick.checkWin(board,player,size);// Check for a win
         if(game == false){
-            cout << "Congradulations player: " << ((player) ? player1 : player2) << " wins!" << endl;
+            cout << "Congradulations player: " << ((player) ? player1 : player2) << " wins!\n";
             cout << "Would you like to play again (Y or N): ";
-            getline(cin,input);
+            cin >> input;
             if(input[0] == 'Y'){
                 game = true;
                 tick.iniBoard(board,size);
-                cin >> size;
             }
         }
         if(tick.checkDraw(board,size) == true){
-            cout << "It's a draw!";
-            getline(cin,input);
+            cout << "It's a draw!\n";
+            cout << "Would you like to play again (Y or N): ";
+            cin >> input;
             if(input[0] == 'Y'){
                 game = true;
                 tick.iniBoard(board,size);
-                cin >> size;
             }
             else{
                 game = false;
