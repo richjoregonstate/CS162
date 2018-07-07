@@ -19,7 +19,7 @@ list::list(){
 
 
 void list::addItem(string a, string b,int c, int d){// We left off here
-    if(numberOfItems >= size){
+    if(numberOfItems >= size){// If the array is full resize it
         cout << "Resize!\n";
         resize();
     }
@@ -33,15 +33,15 @@ void list::addItem(string a, string b,int c, int d){// We left off here
 }   
 
 void list::resize(){
-    item *newList = new item[size*2];
+    item *newList = new item[size*2];// Create the larger array
     for(int i = 0; i < size; i++){
-        newList[i] = groceryList[i];
+        newList[i] = groceryList[i];//  Fill the larger array
     }
 
 
-    delete [] groceryList;
+    delete [] groceryList;//            Delete the older array
     size = size*2;
-    groceryList = newList;
+    groceryList = newList;//            Set the old pointer to the new array
 }
 
 void list::print(){
@@ -52,7 +52,7 @@ void list::print(){
     }
 }
 
-void list::remove(int a){// Broken
+void list::remove(int a){
     for(int i = a; i < numberOfItems; i++){
         groceryList[i] = groceryList[i+1];
     }
