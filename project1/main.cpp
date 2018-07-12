@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <random>
 #include "Game.hpp"
 using namespace std;
 
@@ -38,6 +37,9 @@ int main(){
         getline(cin,player2);
     }
     else{
+        cout << "Would you like to go first (Y or N): ";// Ai
+        getline(cin,input);
+        player = ((input[0] == 'Y') ? true : false);
         player2 = "AI";
     }
 
@@ -65,11 +67,25 @@ int main(){
         tick.printBoard(board,size);// Print the board
         game = tick.checkWin(board,player,size);// Check for a win
         if(game == false){
-            cout << "Congradulations player: " << ((player) ? player1 : player2) << " wins!" << endl;
+            cout << "Congradulations player: " << ((player) ? player1 : player2) << " wins!\n";
+            cout << "Would you like to play again (Y or N): ";
+            cin >> input;
+            if(input[0] == 'Y'){
+                game = true;
+                tick.iniBoard(board,size);
+            }
         }
         if(tick.checkDraw(board,size) == true){
-            cout << "It's a draw!";
-            break;
+            cout << "It's a draw!\n";
+            cout << "Would you like to play again (Y or N): ";
+            cin >> input;
+            if(input[0] == 'Y'){
+                game = true;
+                tick.iniBoard(board,size);
+            }
+            else{
+                game = false;
+            }
         }
         player = (player) ? false : true;
     }

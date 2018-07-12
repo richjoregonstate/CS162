@@ -1,7 +1,9 @@
 #include "Game.hpp"
 #include <iostream>
 #include <string>
-#include <random>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <assert.h>  
 using namespace std;
 
@@ -20,7 +22,7 @@ bool Game::checkWin(char **board, bool player,int n){
     char checkFor = (player) ? 'X' : 'O';
     int win = 0;
 
-    //Diagnal tl to br
+    //Diagnal top left to bottom right
     for(int i = 0; i < n; i++){
         if(board[i][i] == checkFor){
             win++;
@@ -111,7 +113,6 @@ void Game::getInput(char **board,int n,bool player,bool useAi){
         if(useAi == true && player == false){
             row = rand() % n;
             collum = rand() % n;
-            cout << row << ":" << collum << " " << board[row][collum] << endl;
             if(row >= 0 && row <= n && collum >= 0 && collum <= n){// Check valid input format
                 if(board[row][collum] == '*'){// Check valid move
                     makePlay(row,collum,board,player);
@@ -126,7 +127,6 @@ void Game::getInput(char **board,int n,bool player,bool useAi){
             cin >> collum;
             collum--;
             row--;
-            cout << row << ":" << collum << " " << board[row][collum] << endl;
             if(row >= 0 && row <= n && collum >= 0 && collum <= n){// Check valid input format
                 if(board[row][collum] == '*'){// Check valid move
                     makePlay(row,collum,board,player);
