@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(){
-    list stack;
+    list queue;
     char input;
     bool end = false;
     bool takeInput = true;
@@ -11,27 +11,33 @@ int main(){
 
 
     while(!end){
-        cout << "would you like to A dd, R emove, T op, or Q uit";
+        cout << "would you like to A dd, R emove, T op, or Q uit: ";
+        cin >> input;
         switch (input){
-            case 'a': {
+            case 'A': {
                 while(takeInput){
-                    cout << "Please enter one char at a time and end with a '.': \n";
+                    cout << "Please enter one char at a time and end with a '.': " << endl;
                     cin >> input;
                     takeInput = (input == '.') ? false : true;
-                    satck.addBack(input);
+                    queue.addBack(input);
                 }
+                break;
             }
 
             case 'R': {
-                stack.removeFront();
+                queue.removeFront();
+                break;
             }
             
             case 'T': {
-                cout << stack.getFront() << endl;
+                cout << queue.getFront() << endl;
+                break;
             }
 
             case 'Q': {
                 end = true;
+                queue.destroy();
+                break;
             }
         }
     }

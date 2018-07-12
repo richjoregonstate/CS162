@@ -3,12 +3,13 @@
 
 class list{
     public:
+        list();
         void addBack(char);
         void removeFront();
         char getFront();
-
+        void destroy();
     private:
-        void isEmpty();
+        bool isEmpty();
         struct item{
             struct item *next;
             char letter;
