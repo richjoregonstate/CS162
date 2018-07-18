@@ -10,42 +10,46 @@ number to buy, and unit price. You’ll need a print() function.
 
 item::item(){
     itemName;
-    unit;
-    numToBuy;
-    price;
+    joinTime;
+    age;
+    gender;
 }
 
-
 void item::printItem(){
-    cout << itemName << endl << "Number to buy: " << numToBuy << " " << unit << endl<< "Price: $" << price << endl << "Total price: $" << price*numToBuy;
+    cout << itemName << endl << joinTime << "Age: " << age << endl << "Gender: " <<((gender) ? 'M' : 'F') << endl;
     cout << endl;
 }
 
 
 //Get
-int item::getPrice(){
-    return price;
-}
 string item::getItemName(){
     return itemName;
 }
-int item::getNumToBuy(){
-    return numToBuy;
-}
-string item::getUnit(){
-    return unit;
+
+char* item::getJoinTime(){
+    return joinTime;
 }
 
+int item::getAge(){
+    return age;
+}
+
+bool item::getGender(){
+    return gender;
+}
 //Set
-void item::setPrice(int a){
-    price = a;
+void item::setItemName(string in){
+    itemName = in;
 }
-void item::setItemName(string a){
-    itemName = a;
+
+void item::setJoinTime(char* in){
+    joinTime = in;
 }
-void item::setNumToBuy(int a){
-    numToBuy = a;
+
+void item::setAge(int in){
+    age = in;
 }
-void item::setUnit(string a){
-    unit = a;
+
+void item::setGender(bool in){
+    gender = in;
 }

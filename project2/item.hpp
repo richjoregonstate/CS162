@@ -7,19 +7,19 @@ class item{
  public:
   item();
   void printItem();
-  int getPrice();
   string getItemName();
-  int getNumToBuy();
-  string getUnit();
-  void setPrice(int a);
-  void setItemName(string a);
-  void setNumToBuy(int a);
-  void  setUnit(string a);
+  char* getJoinTime();
+  int getAge();
+  bool getGender();
+  void setItemName(string in);
+  void setJoinTime(char* in);
+  void setAge(int in);
+  void setGender(bool in);
  private:
   string itemName;
-  string unit;
-  int numToBuy;
-  int price;
+  char* joinTime;
+  int age;
+  bool gender;
 };
 
 #endif /* ITEM_HPP_ */

@@ -2,6 +2,8 @@
 #include "list.hpp"
 #include <iostream>
 #include <string>
+#include <ctype.h>
+#include <stdio.h>
 using namespace std;
 
 /*
@@ -18,18 +20,21 @@ list::list(){
 }
 
 
-void list::addItem(string a, string b,int c, int d){// We left off here
+void list::addItem(string a, char* b,int c, bool d){// We left off here
     if(numberOfItems >= size){// If the array is full resize it
         cout << "Resize!\n";
         resize();
     }
-    
+
     groceryList[numberOfItems].setItemName(a);    
-    groceryList[numberOfItems].setUnit(b);
-    groceryList[numberOfItems].setNumToBuy(c);
-    groceryList[numberOfItems].setPrice(d);
-    
+    groceryList[numberOfItems].setJoinTime(b);
+    groceryList[numberOfItems].setAge(c);
+    groceryList[numberOfItems].setGender(d);
     numberOfItems++;
+
+    char* 
+    int place = numberOfItems;
+    while(tolower(groceryList[place].getItemName())
 }   
 
 void list::resize(){
@@ -46,9 +51,9 @@ void list::resize(){
 
 void list::print(){
     for(int i = 0; i < numberOfItems; i++){
-        cout << "Item " << i << ": ";
-        groceryList[i].printItem();
         cout << endl;
+        cout << "Member " << i << ": ";
+        groceryList[i].printItem();
     }
 }
 
