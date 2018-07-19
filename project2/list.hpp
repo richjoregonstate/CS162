@@ -12,6 +12,7 @@ class list{
   void remove(int a);
   void destroy();
   void print();
+  void swap(int a,int b);
  private:
     item *groceryList;
     int size;

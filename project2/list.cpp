@@ -26,16 +26,40 @@ void list::addItem(string a, char* b,int c, bool d){// We left off here
         resize();
     }
 
+    //Check repeating TODO: 
+
     groceryList[numberOfItems].setItemName(a);    
     groceryList[numberOfItems].setJoinTime(b);
     groceryList[numberOfItems].setAge(c);
     groceryList[numberOfItems].setGender(d);
     numberOfItems++;
 
-    char* 
-    int place = numberOfItems;
-    while(tolower(groceryList[place].getItemName())
+    int place = numberOfItems - 1;
+    while(tolower(groceryList[place].getItemName()[0] <= tolower(groceryList[place-1].getItemName()[0])) && place >= 0){
+        if(tolower(groceryList[place].getItemName()[0] == tolower(groceryList[place-1].getItemName()[0]))){
+            for(int i = 0; i < groceryList[place].getItemName().length(); i++){
+                if(i > groceryList[place-1].getItemName().length()){
+                    return;// Do no more swaps as blank comes before A
+                }
+                else if(tolower(groceryList[place].getItemName()[i] < tolower(groceryList[place-1].getItemName()[i]))){
+                    break;// Swap
+                }
+                else if(tolower(groceryList[place].getItemName()[i] > tolower(groceryList[place-1].getItemName()[i]))){
+                    return;// We are done
+                }         
+            }
+            
+        }
+        swap(place,place-1);
+        place--;
+    }
 }   
+
+void list::swap(int a, int b){
+    item tmp = groceryList[b];
+    groceryList[b] = groceryList[a];
+    groceryList[a] = tmp;
+}
 
 void list::resize(){
     item *newList = new item[size*2];// Create the larger array
