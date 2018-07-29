@@ -8,7 +8,7 @@ using namespace std;
 
 int main(){// One odd meemory alloc that I can't find
     opperations opp;// Create a new opperations object so we can alter our list
-    cout << "Welcome to your list!" << endl;
+    cout << "Welcome to your member list!" << endl;
     string ans;// For takning in y/n answers
     int ans2;// For takning in numberd answers
     while(true){
@@ -20,7 +20,7 @@ int main(){// One odd meemory alloc that I can't find
         }
         else if(ans[0] == 'R'){
             opp.print();// Print out the list so they can choose what to remove
-            cout << "What item whould you like to remove: ";
+            cout << "What member whould you like to remove: ";
             cin >> ans2;
             opp.remove(ans2);// Delete at index ans2
         }

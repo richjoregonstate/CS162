@@ -7,11 +7,12 @@ using namespace std;
 class list{
  public:
   list();
-  void addItem(string a, string b,int c, int d);
+  void addItem(string a, char* b,int c, bool d);
   void resize();
   void remove(int a);
   void destroy();
   void print();
+  void swap(int a,int b);
  private:
     item *groceryList;
     int size;

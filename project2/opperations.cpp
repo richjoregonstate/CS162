@@ -2,6 +2,7 @@
 #include "list.hpp"
 #include <iostream>
 #include <string>
+#include <ctime>
 using namespace std;
 /*
 Operations: Your program must perform the following activities: create a list, add
@@ -16,20 +17,20 @@ opperations::opperations(){
 
 void opperations::newItem(){
     string itemName;
-    string unit;
-    int numToBuy;
-    int price;
+    char* joinTime;
+    int age;
+    bool gender;
+    time_t now = time(0);
+    cin.ignore();
+    cout << "Name: ";
+    getline(cin,itemName);
+    cout << "\nAge: ";
+    cin >> age;
+    cout << "\nGender 1(M) 0(F): ";
+    cin >> gender;
+    joinTime = ctime(&now);
 
-    cout << "Item name: ";
-    cin >> itemName;
-    cout << "\nItem unit: ";
-    cin >> unit;
-    cout << "\nNumber to buy: ";
-    cin >> numToBuy;
-    cout << "\nPrice: ";
-    cin >> price;
-
-    myList.addItem(itemName,unit,numToBuy,price);
+    myList.addItem(itemName,joinTime,age,gender);
     
 }
 

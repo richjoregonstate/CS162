@@ -11,9 +11,11 @@ void list::addBack(char newData){// !!!ONE NEW!!!
     struct item *tmp = new struct item;
     tmp->letter = newData;
     tmp->next = bottom;
-    if(isEmpty()){
+    
+    if(isEmpty()){// Only if it's empty
         top = tmp;
     }
+    
     bottom = tmp;
     tmp = NULL;
 }
@@ -47,7 +49,7 @@ char list::getFront(){
     return top->letter;
 }
 
-bool list::isEmpty(){  
+bool list::isEmpty(){
     if(top == NULL && bottom == NULL){
         return true;
     }
