@@ -42,7 +42,6 @@ void list::removeFront(){// !!!NEEDS ONE DESTROY!!!
 
 char list::getFront(){
     if(isEmpty()){
-        cout << "!!!THE LIST IS EMPTY!!!\n";
         return ' ';
     }
     return top->letter;
