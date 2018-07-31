@@ -4,7 +4,9 @@
 using namespace std;
 
 class hydr : public chara{
- public:
+  public:
+    hydr();
+    bool defend(int dmg);
   private:
 };
 

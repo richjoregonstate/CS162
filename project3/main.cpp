@@ -8,38 +8,58 @@
 #include "hydr.hpp"
 using namespace std;
 
-chara *pick(int uin){
-    switch(uin){
-        case 0: barb *tmp = new barb; return tmp;
-    }
-}
-
-void ini(chara* p1, chara* p2,int uin){
-    cout << "0: Barbarian" << endl << "1: Medusa" << endl << "2: Blue Men" << endl << "3: Hydra" << endl;
-    cin >> uin;
-    p1 = pick(uin);
-    cout << "Player 2 choose your hero!" << endl;
-    cin >> uin;
-    p2 = pick(uin);
-    cout << endl << endl;
-}
-
-void unIni(chara* p1, chara* p2){
-    delete p1;
-    delete p2;
-}
-
 int main(){
-    srand((unsigned)time(NULL));
+    srand(time(NULL));
     int uin;
-    bool turn = rand()% 1;
+    bool turn = rand() % 2;
     bool game = true;
     chara *player1;
     chara *player2;
 
-    cout << "Welcome to BRAWL!" << endl << "Player 1 choose your hero!" << endl;
-    ini(player1,player2,uin);
-    
+    cout << "Welcome to BRAWL!" << endl;
+    //ini(&player1,&player2);
+    cout << "0: Barbarian" << endl << "1: Medusa" << endl << "2: Blue Men" << endl << "3: Hydra" << endl;
+    cout << "Player 1 choose your hero!" << endl;
+    cin >> uin;
+    switch(uin){
+        case 0: player1 = new barb(); break;
+        case 1: player1 = new medu(); break;
+        case 2: player1 = new blueM(); break;
+        case 3: player1 = new hydr(); break;
+    }
+    cout << "Player 2 choose your hero!" << endl;
+    cin >> uin;
+    switch(uin){
+        case 0: player2 = new barb(); break;
+        case 1: player2 = new medu(); break;
+        case 2: player2 = new blueM(); break;
+        case 3: player2 = new hydr(); break;
+    }
+    cout << endl << endl;
+
+    while(game){
+        if(turn){
+            cout << "Player 1 attacks for "; 
+            if(player1->attack(player2)){
+                cout << endl << "Player 1 wins!" << endl;
+                break;
+            } 
+            turn = false;
+        }
+        else{
+            cout << "Player 2 attacks for "; 
+            if(player2->attack(player1)){
+                cout << endl << "Player 2 wins!" << endl;
+                break;
+            }
+            turn = true;
+        }
+        cout << endl << endl << endl;
+        cout << "Player 1: " << player1->getHp() << endl;
+        cout << "Player 2: " << player2->getHp();
+        cout << endl << endl << endl;
+    }
     cout << "thanks for playing" << endl;
-    unIni(player1,player2);
+    delete player1;
+    delete player2;
 }

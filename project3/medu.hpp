@@ -4,7 +4,9 @@
 using namespace std;
 
 class medu : public chara{
- public:
+  public:
+    medu();
+    bool attack(chara *other);
   private:
 };
 

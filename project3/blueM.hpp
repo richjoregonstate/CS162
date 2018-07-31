@@ -4,7 +4,8 @@
 using namespace std;
 
 class blueM : public chara{
- public:
+  public:
+    blueM();
   private:
 };
 

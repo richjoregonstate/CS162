@@ -4,12 +4,10 @@
 using namespace std;
 
 barb::barb(){
-    //hi
-}
-
-void barb::attack(){
-    //evening
-}
-void barb::defend(){
-    //hello
+    atk = 6;
+    numAtk = 2;
+    def = 6;
+    numDef = 2;
+    armor = 0;
+    hp = 12;
 }
