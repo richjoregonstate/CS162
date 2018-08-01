@@ -8,6 +8,15 @@
 #include "hydr.hpp"
 using namespace std;
 
+/*********************************************************************
+** Program Filename: program
+** Author: Jonathan Rich
+** Date: 7/28/2018
+** Description: Have a compter algorithm fight itself.
+** Input: 2 heros that you want to fight
+** Output: Heroic combat
+*********************************************************************/
+
 int main(){
     srand(time(NULL));
     int uin;
