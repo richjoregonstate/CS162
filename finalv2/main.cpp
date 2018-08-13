@@ -1,7 +1,6 @@
 #include <iostream>
 #include <time.h>
 #include <vector>
-#include <random>
 #include "room.hpp"
 #include "exitroom.hpp"
 #include "keyroom.hpp"
@@ -69,7 +68,9 @@ int main(){
             current = current->move(uin);
         }
         else if(uin == 'g'){
-            key = current->getKey();
+	    if(!key){
+		key = current->getKey();
+	    }
             if(key){
                 cout << "You have found the key now you just need to find the exit!" << endl;
             }
