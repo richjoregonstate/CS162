@@ -16,6 +16,8 @@ class room{
     virtual bool putKey(bool) = 0;
     virtual bool getKey() = 0;
     virtual void action(vector<room*>) = 0;
+    string get();
+    void set(string);
     room* getn();
     room* gete();
     room* gets();
@@ -27,6 +29,7 @@ class room{
     room* s;
     room* w;
     int id;
+    string item = "";
 };
 
 #endif /* ROOM_HPP_ */

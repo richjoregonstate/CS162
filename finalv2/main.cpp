@@ -12,6 +12,9 @@ using namespace std;
 
 int main(){
     bool key = 0;
+    int moves = 50;
+    string backpack[3];
+    int numItem = 0;
     //Ini the maze
     room* current = new normalroom("A dark pit at the bottom of the maze",0);
     vector<room*> maze;
@@ -40,6 +43,7 @@ int main(){
     maze[8]->link(NULL,NULL,maze[7],NULL);
     maze[9]->link(NULL,maze[10],maze[6],NULL);
     maze[10]->link(maze[11],NULL,NULL,maze[9]);
+    maze[10]->set("Old book");
     maze[11]->link(NULL,maze[12],maze[10],NULL);
     maze[12]->link(NULL,maze[13],NULL,maze[11]);
     maze[13]->link(maze[12],NULL,maze[14],NULL);
@@ -47,9 +51,11 @@ int main(){
     maze[15]->link(maze[16],maze[17],maze[18],maze[14]);
     maze[16]->link(NULL,NULL,maze[15],NULL);
     maze[17]->link(NULL,NULL,NULL,maze[15]);
+    maze[17]->set("Boomerang");
     maze[18]->link(maze[15],maze[21],maze[19],NULL);
     maze[19]->link(maze[18],NULL,maze[20],NULL);
     maze[20]->link(maze[19],NULL,NULL,maze[5]);
+    maze[20]->set("Gold statue");
     maze[21]->link(maze[18],NULL,NULL,NULL);
     
     //sseese
@@ -67,21 +73,35 @@ int main(){
             if(key){
                 cout << "You have found the key now you just need to find the exit!" << endl;
             }
+            if(current->get() != "" && numItem < 3){
+                backpack[numItem] = current->get();
+                numItem++;
+            }
         }
         else if(uin == 'p'){
             if(current->putKey(key)){
-                cout << "Congradulations you have made it out of the maze!" << endl;
+                cout << "Congradulations you have made it out of the maze!" << endl << "You got: " << numItem << "/3 easter eggs" << endl;                
                 break;
             }
         }
         else if(uin == 'l'){
             current->look();
+            cout << "You have these items in your bag:" << endl;
+            for(int i = 0; i < numItem; i++){
+                cout << backpack[i] << endl;
+            }
+            cout << "You " << ((key) ? "do" : "don't") << " have a key" << endl;
         }
         else if(uin == 'a'){
             current->action(maze);
         }
+        if(moves == 0){
+            cout << "The maze colapses on top of you! You took to long! GAME OVER" << endl;
+            break;
+        }
         cout << "N E S W | (g)et (p)ut (l)ook (a)ction" << endl << current->getDis() << endl;
         cin >> uin;
+        moves--;
     }
     
     for(int i = 0; i < maze.size()+1; i++){

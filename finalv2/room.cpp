@@ -63,6 +63,7 @@ void room::look(){
     if(n == NULL && e == NULL && s == NULL && w == NULL){
         cout << "You are traped in a pit!" << endl;
     }
+    cout << "There is a: " << item << " on the floor" << endl;
 }
 
 room* room::getn(){
@@ -76,4 +77,12 @@ room* room::gets(){
 }
 room* room::getw(){
     return w;
+}
+
+string room::get(){
+    return item;
+}
+
+void room::set(string in){
+    item = in;
 }
