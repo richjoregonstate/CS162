@@ -3,7 +3,7 @@ SRCS = room.cpp exitroom.cpp keyroom.cpp multiroom.cpp normalroom.cpp slideroom.
 HEADERS = room.hpp exitroom.hpp keyroom.hpp multiroom.hpp normalroom.hpp slideroom.hpp
 
 program: ${SRCS} ${HEADERS}
-	 ${CXX} main.cpp ${SRCS} -o program -g
+	 ${CXX} main.cpp ${SRCS} -o program -g -w
 
 clean:
 	rm -f *.o program
